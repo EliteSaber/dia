@@ -25,32 +25,22 @@ namespace dia
         static void TwoCycles(int n)
         {
             int half = n / 2;
-            string s = "";
             for (int i = 1; i <= half + 1; i++)
-            {
-                for (int j = 1; j <= half + 1 - i; j++)
-                    s += " ";
-                s += "*";
-                if (i > 1)
-                {
-                    for (int j = 1; j <= 2 * i - 3; j++)
-                        s += " ";
-                    s += "*";
-                }
-                s += "\r\n";
-            }
+                Print(i, half);
             for (int i = half; i > 0; i--)
+                Print(i, half);
+        }
+        static void Print(int i, int half)
+        {
+            string s = "";
+            for (int j = 1; j <= half + 1 - i; j++)
+                s += " ";
+            s += "*";
+            if (i > 1)
             {
-                for (int j = 1; j <= half + 1 - i; j++)
+                for (int j = 1; j <= 2 * i - 3; j++)
                     s += " ";
                 s += "*";
-                if (i > 1)
-                {
-                    for (int j = 1; j <= 2 * i - 3; j++)
-                        s += " ";
-                    s += "*";
-                }
-                s += "\r\n";
             }
             Console.WriteLine(s);
         }
